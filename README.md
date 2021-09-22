@@ -28,7 +28,37 @@ Extracted daily closing price and used. 4-day moving average was selected for sm
 Between the SMA and EWM dual crossover strategies, EWM dual crossover strategy has a reduced annual return, increased cumulative returns, decreased volatility, increased Sharpe ratio, and increased Sortino ratio. This strategy had more transactions (23 to 25, not shown) i.e., likely incur marginally increased cost.  
 Bottomline: EWM Dual Crossover Strategy is marginally superior.
 
-## 3. Algorithmic Trading Analysis using a combination of two Trading Indicators: Stochastic Oscillator and Simple Moving Average
+## 3. Algorithmic Trading Analysis using a combination of two Trading Indicators: Stochastic Oscillator and Simple Moving Average  
+
+Create Stochastic Oscillator Model    
+    Define %K Line number of periods   
+    Calculate K Line  
+    Define %D Line number of Periods  
+    Calculate %D Line  
+    Create Trading Signals  
+    IF %K LINE < 20 AND %D LINE < 20 AND %K LINE < %D LINE => BUY  
+
+    IF %K LINE > 80 AND %D LINE > 80 AND %K LINE > %D LINE => SELL  
+
+Add Simple Moving Average Trading Indicators  
+    Define Short Window and Calculate Fast Indicator  
+    Define Long Window and Calculate Slow Indicator  
+    Combine signals for Stochastic Oscillator, and Simple Moving Average using 'OR' operator  
+
+Run the model and perform Backtesting    
+    Run Backtesting to  generate the following for model evaluation:  
+        Annual Returns  
+        Cumulative Returns  
+        Annualized Volatility  
+        Sharpe Ratio  
+        Sortino Ratio  
+
+Run Parameter Sweep for the combined Model  
+    For each combination of Parameters for the two models, run the full Trading Analysis and Backtesting to find out the Param Set which has the best Sharpe Ratio, and Cumulative Returns  
+    
+Refine The model  
+    Refine the model using the Param set determined by the Param sweep exercise  
+
 
 ## 4. Machine Learning Models - classification problem via Support Vector Machine (SVM), Random Forest (RF), and Gradient Boost (GB) 
 Considering all three predictive models Random Forrest showed the best accuracy score (0.78) while the worst was the Support Vector Machines model (0.65). All models show significant trading algorithm return gains compared to the actual gains. 
